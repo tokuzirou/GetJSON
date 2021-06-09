@@ -3,10 +3,10 @@ using System.IO;
 
 namespace GetJSON
 {
-    public static class OperateDirectory
+    internal class OperateDirectory : OperateIO, IDirectory
     {
         //ディレクトリ名を入力させる
-        public static string InputDirectory()
+        internal override string Input()
         {
             string dir;
             Console.Write("ディレクトリ名: ");
@@ -14,13 +14,10 @@ namespace GetJSON
             dir = String.Format(@"{0}", dir);
             return dir;
         }
-
-        //無効なディレクトリの処理
-
         
         //ディレクトリが見つからない場合
         //新しくディレクトリを作成する
-        public static void CreateDirectory(string directoryPath)
+        internal override void Create(string directoryPath)
         {
             if (!Directory.Exists(directoryPath))
             {
@@ -28,10 +25,16 @@ namespace GetJSON
             }
         }
 
+        //無効なディレクトリの処理
+        //public static void Vaild()
+        //{
+
+        //}
+
         //カレントディレクトリを移動
-        public static void MoveDirectory(string dirPath)
+        public void Move(string directoryPath)
         {
-            Directory.SetCurrentDirectory(dirPath);
+            Directory.SetCurrentDirectory(directoryPath);
         }
     }
 }
