@@ -43,12 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Confirm.cs" />
+    <Compile Include="IDirectory.cs" />
+    <Compile Include="IFile.cs" />
+    <Compile Include="InputData.cs" />
     <Compile Include="JSON.cs" />
+    <Compile Include="JSONDATA.cs" />
     <Compile Include="OperateDirectory.cs" />
     <Compile Include="OperateFile.cs" />
+    <Compile Include="OperateIO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpperCaseNamingPolicy.cs" />
+    <Compile Include="WriteJSON.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -3,20 +3,19 @@ using System.IO;
 
 namespace GetJSON
 {
-    public static class OperateFile
+    internal class OperateFile : OperateIO, IFile
     {
         //ファイル名入力
-        public static string InputFile()
+        internal override string Input()
         {
-            string file;
             Console.Write("ファイル名: ");
-            file = Console.ReadLine();
-            file = String.Format(@"{0}", file);
+            string file = Console.ReadLine();
+            file = string.Format(@"{0}", file);
             return file;
         }
 
         //ファイルがない場合、作成
-        public static void CreateFile(string filePath)
+        internal override void Create(string filePath)
         {
             if (!File.Exists(filePath))
             {

@@ -3,10 +3,11 @@ using System.Text.Json.Serialization;
 
 namespace GetJSON
 {
-    //データクラス
+    //ラップデータベース
     class JSON
     {
-        [JsonPropertyName("word")]
-        public List<string> Word { get; set; }
+        //[注意]Dictionaryなので、同じキーは存続できない
+        [JsonPropertyName("wordsdata")]
+        public Dictionary<string, JSONDATA> Words { get; set; }
     }
 }
