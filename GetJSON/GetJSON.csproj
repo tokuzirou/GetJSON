@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Confirm.cs" />
+    <Compile Include="ConfirmBase.cs" />
+    <Compile Include="FileJSON.cs" />
     <Compile Include="IDirectory.cs" />
     <Compile Include="IFile.cs" />
     <Compile Include="InputData.cs" />
+    <Compile Include="InputDataBase.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="JSONDATA.cs" />
     <Compile Include="OperateDirectory.cs" />
@@ -54,7 +57,9 @@
     <Compile Include="OperateIO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadJSON.cs" />
     <Compile Include="WriteJSON.cs" />
+    <Compile Include="WriteJSONBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
