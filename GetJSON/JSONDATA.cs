@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace GetJSON
 {
     //本体データベース
-    class JSONDATA
+    public class JSONDATA
     {
         [JsonPropertyName("word")]
         public string Word { get; set; }

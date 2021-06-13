@@ -19,7 +19,15 @@ namespace GetJSON
         {
             if (!File.Exists(filePath))
             {
-                File.Create(filePath);
+                try
+                {
+                    using (FileStream fs = File.Create(filePath)) { }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("入力の形式が違います。");
+                    Console.WriteLine(ex.ToString());
+                }
             }
         }
     }

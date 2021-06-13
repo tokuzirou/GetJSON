@@ -4,10 +4,15 @@ using System.Text.Json.Serialization;
 namespace GetJSON
 {
     //ラップデータベース
-    class JSON
+    public class JSON
     {
         //[注意]Dictionaryなので、同じキーは存続できない
-        [JsonPropertyName("wordsdata")]
+        [JsonPropertyName("words")]
         public Dictionary<string, JSONDATA> Words { get; set; }
+
+        internal JSON()
+        {
+            this.Words = new Dictionary<string, JSONDATA>();
+        }
     }
 }

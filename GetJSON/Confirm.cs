@@ -2,29 +2,20 @@
 
 namespace GetJSON
 {
-    public class Confirm
+    public class Confirm : ConfirmBase
     {
-        private bool _inputEndcodeFlag;
-        private string _inputEndcode;
+        internal override bool JudgeEndFlag { get; set; }
 
-        internal bool JudgeEndFlag { get; set; }
+        internal Confirm(){ }
 
-        internal Confirm()
-        {
+        internal Confirm(bool judgeEndFlag) => this.JudgeEndFlag = judgeEndFlag;
 
-        }
-
-        internal Confirm(bool judgeEndFlag)
-        {
-            this.JudgeEndFlag = judgeEndFlag;
-        }
-
-        internal void ConfirmData()
+        internal override void ConfirmData(string message = "データを入力しますか")
         {
             while (_inputEndcodeFlag)
             {
                 //入力するかどうか確認
-                Console.WriteLine("データを入力しますか");
+                Console.WriteLine(message);
                 Console.Write("Yes/No: ");
                 _inputEndcode = Console.ReadLine();
                 switch (_inputEndcode)
@@ -43,25 +34,26 @@ namespace GetJSON
                         continue;
                 }
             }
+            _inputEndcodeFlag = true;
         }
 
-        internal bool ConfirmData(bool judgeEnd)
+        internal override bool ConfirmData(bool loopFlag, string message = "データを入力しますか")
         {
             while (_inputEndcodeFlag)
             {
                 //入力するかどうか確認
-                Console.WriteLine("データを入力しますか");
+                Console.WriteLine(message);
                 Console.Write("Yes/No: ");
                 _inputEndcode = Console.ReadLine();
                 switch (_inputEndcode)
                 {
                     case "Yes":
+                        loopFlag = true;
                         _inputEndcodeFlag = false;
-                        judgeEnd = true;
                         break;
                     case "No":
+                        loopFlag = false;
                         _inputEndcodeFlag = false;
-                        judgeEnd = false;
                         break;
                     default:
                         Console.WriteLine("入力する形式が違います。");
@@ -69,8 +61,8 @@ namespace GetJSON
                         continue;
                 }
             }
-
-            return judgeEnd;
+            _inputEndcodeFlag = true;
+            return loopFlag;
         }
     }
 }
